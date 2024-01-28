@@ -19,11 +19,19 @@ class Assignment2:
         return modified_str
     
     @staticmethod
-    def checkGoodString(string):
-        if len(string) >= 9 and string[0].islower() and string.count('0') == 1:
-            return True
-        else:
-            return False 
+   def checkGoodString(string):
+        if len(string) < 9:
+            return False
+        if string[0].islower() == False:
+            return False
+        _num_count = 0
+        for i in string:
+            if i.isdigit():
+                _num_count +=1
+            if _num_count > 1:
+                return False
+            
+        return True
 
  
         
