@@ -15,6 +15,7 @@ class Assignment2:
 
     def modifyYear(self, n):
         year_str = str(self.year)
+        
         if len(year_str) < 2:
             return "Invalid input"
 
