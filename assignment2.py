@@ -9,7 +9,7 @@ class Assignment2:
         print(f"Your age is {birth_year}")
         
     def listAnniversaries(self):
-        today = 2002
+        today = 2022
         anniversaries = [i for i in range(10, today - self.year + 1, 10)]
         return anniversaries
     
