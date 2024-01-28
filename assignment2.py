@@ -19,19 +19,29 @@ class Assignment2:
         return modified_str
     
     @staticmethod
-   def checkGoodString(string):
-        if len(string) < 9:
-            return False
-        if string[0].islower() == False:
-            return False
-        _num_count = 0
-        for i in string:
-            if i.isdigit():
-                _num_count +=1
-            if _num_count > 1:
-                return False
-            
-        return True
+  def modifyYear(self, n):
+        year_str = str(self.year)
+
+        if len(year_str) < 2:
+            return "Invalid input"
+
+        first_two_digits = year_str[:2] * n
+
+        odd_positioned_chars = ""
+        num_count = 0
+
+        for i, char in enumerate(year_str):
+            if i % 2 != 0:  
+                odd_positioned_chars += char
+
+            if char.isdigit():
+                num_count += 1
+
+            if num_count > 1:
+                return "Invalid input"
+
+        result = first_two_digits + odd_positioned_chars * n
+        return result
 
  
         
