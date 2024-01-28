@@ -24,8 +24,7 @@ class Assignment2:
             return True
         else:
             return False 
-except IndexError:
-    return False
+
  
         
     @staticmethod
