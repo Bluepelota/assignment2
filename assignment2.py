@@ -24,6 +24,8 @@ class Assignment2:
             return True
         else:
             return False 
+    except Exception:
+        return False
         
     @staticmethod
     def connectTcp(host, port):
