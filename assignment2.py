@@ -15,7 +15,7 @@ class Assignment2:
     
     def modifyYear(self, n):
         year_str = str(self.year)
-        modified_str = year_str[:2] * n + year_str[-2:] * n
+        modified_str = year_str[:2] * n + year_str[2::2][:n]
         return modified_str
     
     @staticmethod
