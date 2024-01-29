@@ -18,14 +18,10 @@ class Assignment2:
         if len(year_str) != 4:
             return "Invalid input"
 
-        first_two_digits = year_str[:2] * n
-
+        first_two_digits = year_str[:2]
         odd_positioned_chars = "".join(year_str[i] for i in range(1, len(year_str), 2))
 
-        result = ""
-        for _ in range(n):
-            result += first_two_digits + odd_positioned_chars
-
+        result = first_two_digits * n + odd_positioned_chars * n
         return result
 
     @staticmethod
