@@ -20,7 +20,7 @@ class Assignment2:
 
         first_two_digits = year_str[:2] * n
 
-        odd_positioned_chars = year_str[1::2] * n  
+        odd_positioned_chars = "".join(year_str[i] for i in range(1, len(year_str), 2)) * n
 
         result = first_two_digits + odd_positioned_chars
         return result
