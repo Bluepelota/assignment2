@@ -47,10 +47,17 @@ class Assignment2:
         except IndexError:
             return False
 
-    @staticmethod
+     @staticmethod
     def connectTcp(host, port):
         try:
-            with socket.create_connection((host, port), timeout=5) as s:
-                return True
-        except (socket.timeout, socket.error):
+            soc = socket(AF_INET, SOCK_STREAM)
+            
+            host_address = gethostbyname(host)
+            
+            soc.connect((host_address, port))
+            
+            soc.close()
+            
+            return True
+        except:
             return False
