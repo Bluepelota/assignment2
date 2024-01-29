@@ -1,4 +1,4 @@
-from socket import socket, AF_INET, SOCK_STREAM, gethostbyname
+import socket
 
 class Assignment2:
     def __init__(self, year):
@@ -9,7 +9,7 @@ class Assignment2:
         print(f"Your age is {birth_year}")
 
     def listAnniversaries(self):
-        today = 2022  
+        today = 2022  # Assuming today is the year 2022
         anniversaries = [i for i in range(10, today - self.year + 1, 10)]
         return anniversaries
 
@@ -24,7 +24,7 @@ class Assignment2:
         num_count = 0
 
         for i, char in enumerate(year_str):
-            if i % 2 != 0:  
+            if i % 2 != 0:  # Check if the position is odd
                 odd_positioned_chars += char
 
             if char.isdigit():
@@ -49,12 +49,8 @@ class Assignment2:
     @staticmethod
     def connectTcp(host, port):
         try:
-            soc = socket(AF_INET, SOCK_STREAM) 
-            host_address = gethostbyname(host)
-            soc.connect((host_address, port))
-            soc.close()
-            return True
-        except (socket.timeout, socket.error) as e:
-            print(f"Error {e}")
+            with socket.create_connection((host, port), timeout=5) as s:
+                return True
+        except (socket.timeout, socket.error):
             return False
 
