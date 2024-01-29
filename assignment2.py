@@ -20,20 +20,9 @@ class Assignment2:
 
         first_two_digits = year_str[:2] * n
 
-        odd_positioned_chars = ""
-        num_count = 0
+        odd_positioned_chars = year_str[1::2] * n  
 
-        for i, char in enumerate(year_str):
-            if i % 2 != 0:  
-                odd_positioned_chars += char
-
-            if char.isdigit():
-                num_count += 1
-
-            if num_count > 1:
-                return "Invalid input"
-
-        result = first_two_digits + odd_positioned_chars * n
+        result = first_two_digits + odd_positioned_chars
         return result
 
     @staticmethod
