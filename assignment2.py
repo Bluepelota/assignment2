@@ -15,7 +15,7 @@ class Assignment2:
 
     def modifyYear(self, n):
         year_str = str(self.year)
-        if len(year_str) < 2:
+        if len(year_str) != 4:
             return "Invalid input"
 
         first_two_digits = year_str[:2] * n
@@ -39,12 +39,10 @@ class Assignment2:
     @staticmethod
     def checkGoodString(string):
         try:
-            if len(string) >= 9 and string[0].islower() and string.count('0') == 1:
+            if len(string) >= 9 and string[0].islower() and sum(c.isdigit() for c in string) == 1:
                 return True
             else:
                 return False
-        except IndexError:
-            return False
 
     @staticmethod
     def connectTcp(host, port):
