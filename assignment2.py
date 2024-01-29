@@ -9,7 +9,7 @@ class Assignment2:
         print(f"Your age is {birth_year}")
 
     def listAnniversaries(self):
-        today = 2022  # Assuming today is the year 2022
+        today = 2022  
         anniversaries = [i for i in range(10, today - self.year + 1, 10)]
         return anniversaries
 
@@ -24,7 +24,7 @@ class Assignment2:
         num_count = 0
 
         for i, char in enumerate(year_str):
-            if i % 2 != 0:  # Check if the position is odd
+            if i % 2 != 0:  
                 odd_positioned_chars += char
 
             if char.isdigit():
@@ -38,11 +38,10 @@ class Assignment2:
 
     @staticmethod
     def checkGoodString(string):
-        try:
-            if len(string) >= 9 and string[0].islower() and sum(c.isdigit() for c in string) == 1:
-                return True
-            else:
-                return False
+        if len(string) >= 9 and string[0].islower() and sum(c.isdigit() for c in string) == 1:
+            return True
+        else:
+            return False
 
     @staticmethod
     def connectTcp(host, port):
@@ -51,4 +50,5 @@ class Assignment2:
                 return True
         except (socket.timeout, socket.error):
             return False
+
 
