@@ -1,4 +1,4 @@
-import socket
+from socket import socket, AF_INET, SOCK_STREAM, gethostbyname
 
 class Assignment2:
     def __init__(self, year):
@@ -15,7 +15,6 @@ class Assignment2:
 
     def modifyYear(self, n):
         year_str = str(self.year)
-        
         if len(year_str) < 2:
             return "Invalid input"
 
@@ -47,17 +46,15 @@ class Assignment2:
         except IndexError:
             return False
 
-     @staticmethod
+    @staticmethod
     def connectTcp(host, port):
         try:
-            soc = socket(AF_INET, SOCK_STREAM)
-            
+            soc = socket(AF_INET, SOCK_STREAM) 
             host_address = gethostbyname(host)
-            
             soc.connect((host_address, port))
-            
             soc.close()
-            
             return True
-        except:
+        except (socket.timeout, socket.error) as e:
+            print(f"Error {e}")
             return False
+
