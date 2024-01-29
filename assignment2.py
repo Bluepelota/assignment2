@@ -22,7 +22,10 @@ class Assignment2:
 
         odd_positioned_chars = "".join(year_str[i] for i in range(1, len(year_str), 2))
 
-        result = first_two_digits + odd_positioned_chars * n
+        result = ""
+        for _ in range(n):
+            result += first_two_digits + odd_positioned_chars
+
         return result
 
     @staticmethod
